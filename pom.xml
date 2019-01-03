@@ -7,6 +7,10 @@
     <groupId>com.archserver</groupId>
     <artifactId>arch-server</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <name>java-server</name>
+    <description>test java servlet</description>
 
     <properties>
         <skipTests>true</skipTests>
@@ -15,4 +19,23 @@
         <java.version>1.8</java.version>
     </properties>
 
+    <build>
+        <plugins>
+            <plugin>
+                <!-- Build an executable JAR -->
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.1.0</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <classpathPrefix>lib/</classpathPrefix>
+                            <mainClass>com.archserver.Main</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
